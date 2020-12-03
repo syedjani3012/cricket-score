@@ -1,0 +1,19 @@
+
+.SUBCKT OPAMP 1 2 7 4
+Ri 1 2 2.0E6
+GO 4 3 1 2 0.1M
+R1 3 4 10K 
+C1 3 4 1.5619U
+EA 4 5 3 4 2E+5
+R0 5 7 75
+.ENDS OPAMP
+vin 1 0 pwl(0 0 1M 1 2M 0 3M 1 4M 0)
+r 1 2 100
+c 2 3 0.4U
+rf 3 4 10K
+rx 5 0 10K
+rl 4 0 100K
+XA1 3 5 4 0 OPAMP
+.tran 10U 4M
+.probe
+.end 
